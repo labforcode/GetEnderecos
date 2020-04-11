@@ -14,6 +14,9 @@ docker volume inspect enderecos-staging
 
 docker volume inspect enderecos-development
 
+## Criar uma rede especial em modo bridge
+docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/16 dev-local
+
 ## Executar o container do Postgres para a API Endereços
 docker run -ti --network=dev-local --ip 172.18.0.31 -p 5435:5432 --name enderecos-production -e "POSTGRES_PASSWORD=lab4code!" -v /var/lib/docker/volumes/enderecos-production/_data:/var/lib/postgresql/data -d postgres
 
