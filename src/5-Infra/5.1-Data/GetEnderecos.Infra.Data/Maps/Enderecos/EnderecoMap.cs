@@ -22,12 +22,12 @@ namespace GetEnderecos.Infra.Data.Maps.Enderecos
                    .IsRequired();
 
             builder.Property(c => c.Complemento)
-                    .HasColumnName("Complemento")
+                    .HasColumnName("complemento")
                     .HasColumnType("varchar(150)")
                     .IsRequired();
 
             builder.Property(c => c.Bairro)
-                   .HasColumnName("Bairro")
+                   .HasColumnName("bairro")
                    .HasColumnType("varchar(100)")
                    .IsRequired();
 

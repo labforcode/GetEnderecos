@@ -1,3 +1,4 @@
+using GetEnderecos.Api.Configurations;
 using GetEnderecos.Infra.CrossCutting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -22,7 +23,15 @@ namespace GetEnderecos.Api
         {
             services.AddControllers();
 
-            BootstraperContainerDI.Injector(services, Configuration);
+            Injector(services);
+
+            var config = new AutoMapper.MapperConfiguration(c => 
+            {
+                c.AddProfile(new ApplicationProfile());
+            });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddSwaggerGen(c =>
             {
@@ -55,6 +64,11 @@ namespace GetEnderecos.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+        }
+
+        private void Injector(IServiceCollection services)
+        {
+            BootstraperContainerDI.Injector(services, Configuration);
         }
     }
 }
