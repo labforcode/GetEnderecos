@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using GetEnderecos.Application.Interfaces.Enderecos;
+﻿using GetEnderecos.Application.Interfaces.Enderecos;
 using GetEnderecos.Application.ViewModels.Enderecos;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace GetEnderecos.Api.Controllers
@@ -19,10 +19,9 @@ namespace GetEnderecos.Api.Controllers
 
         [HttpGet]
         [Route("enderecos")]
-        public async Task<EnderecoViewModel> ObterEnderecos()
+        public async Task<IEnumerable<EnderecoViewModel>> ObterEnderecos()
         {
-
-            return null;
+            return await _enderecoService.ObterTodos();
         }
     }
 }

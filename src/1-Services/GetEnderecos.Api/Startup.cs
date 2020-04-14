@@ -25,13 +25,7 @@ namespace GetEnderecos.Api
 
             Injector(services);
 
-            var config = new AutoMapper.MapperConfiguration(c => 
-            {
-                c.AddProfile(new ApplicationProfile());
-            });
-
-            var mapper = config.CreateMapper();
-            services.AddSingleton(mapper);
+            services.AddAutoMapperSetup();
 
             services.AddSwaggerGen(c =>
             {

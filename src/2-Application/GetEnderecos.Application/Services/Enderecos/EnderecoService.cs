@@ -2,6 +2,7 @@
 using GetEnderecos.Application.Interfaces.Enderecos;
 using GetEnderecos.Application.ViewModels.Enderecos;
 using GetEnderecos.Domain.Interfaces.Dapper.Enderecos;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace GetEnderecos.Application.Services.Enderecos
@@ -22,10 +23,9 @@ namespace GetEnderecos.Application.Services.Enderecos
         /// 
         /// </summary>
         /// <returns></returns>
-        public async Task<EnderecoViewModel> ObterTodos()
+        public async Task<IEnumerable<EnderecoViewModel>> ObterTodos()
         {
-            //return _mapper.Map<EnderecoViewModel>(await _enderecoRepositoryDapper.ObterTodos());
-            return null;
+            return _mapper.Map<IEnumerable<EnderecoViewModel>>(await _enderecoRepositoryDapper.ObterTodos());
         }
     }
 }
