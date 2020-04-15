@@ -18,11 +18,11 @@ docker volume inspect enderecos-development
 docker network create --gateway 172.18.0.1 --subnet 172.18.0.0/16 dev-local
 
 ## Executar o container do Postgres para a API Endereços
-docker run -ti --network=dev-local --ip 172.18.0.31 -p 5435:5432 --name enderecos-production -e "POSTGRES_PASSWORD=lab4code!" -v /var/lib/docker/volumes/enderecos-production/_data:/var/lib/postgresql/data -d postgres
+docker run -ti --network=dev-local --ip 172.18.0.31 -p 5435:5432 --name enderecos-production -e "POSTGRES_PASSWORD=suaSenha" -v /var/lib/docker/volumes/enderecos-production/_data:/var/lib/postgresql/data -d postgres
 
-docker run -ti --network=dev-local --ip 172.18.0.33 -p 5437:5432 --name enderecos-staging -e "POSTGRES_PASSWORD=lab4code!" -v /var/lib/docker/volumes/enderecos-staging/_data:/var/lib/postgresql/data -d postgres
+docker run -ti --network=dev-local --ip 172.18.0.33 -p 5437:5432 --name enderecos-staging -e "POSTGRES_PASSWORD=suaSenha" -v /var/lib/docker/volumes/enderecos-staging/_data:/var/lib/postgresql/data -d postgres
 
-docker run -ti --network=dev-local --ip 172.18.0.35 -p 5439:5432 --name enderecos-development -e "POSTGRES_PASSWORD=lab4code!" -v /var/lib/docker/volumes/enderecos-development/_data:/var/lib/postgresql/data -d postgres
+docker run -ti --network=dev-local --ip 172.18.0.35 -p 5439:5432 --name enderecos-development -e "POSTGRES_PASSWORD=suaSenha" -v /var/lib/docker/volumes/enderecos-development/_data:/var/lib/postgresql/data -d postgres
 
 
 # Migration
