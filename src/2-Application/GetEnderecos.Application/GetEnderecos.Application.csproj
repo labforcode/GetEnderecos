@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\3-Domain\GetEnderecos.Domain\GetEnderecos.Domain.csproj" />
+    <ProjectReference Include="..\..\4-Common\GetEnderecos.Common\GetEnderecos.Common.csproj" />
   </ItemGroup>
 
 </Project>
