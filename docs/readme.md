@@ -1,4 +1,8 @@
 
+# Este projeto é público, permito que seja copiado e alterado.
+## Aceito contribuições para sua melhoria.
+
+
 # Docker
 ## Criação de Volume Docker
 docker volume create enderecos-production
