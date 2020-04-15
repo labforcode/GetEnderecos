@@ -20,7 +20,17 @@ namespace GetEnderecos.Application.Services.Enderecos
         }
 
         /// <summary>
-        /// 
+        /// Obtém um endereço pelo CEP
+        /// </summary>
+        /// <param name="cep"></param>
+        /// <returns></returns>
+        public async Task<EnderecoViewModel> ObterEnderecoPorCep(string cep)
+        {
+            return _mapper.Map<EnderecoViewModel>(await _enderecoRepositoryDapper.ObterEnderecoPorCep(cep));
+        } 
+
+        /// <summary>
+        /// Obtém todos os endereços
         /// </summary>
         /// <returns></returns>
         public async Task<IEnumerable<EnderecoViewModel>> ObterTodos()

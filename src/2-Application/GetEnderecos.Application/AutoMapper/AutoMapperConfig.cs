@@ -9,7 +9,6 @@ namespace GetEnderecos.Application.AutoMapper
             return new MapperConfiguration(config =>
             {
                 config.AddProfile<DomainToViewModelMappingProfile>();
-                //config.AddProfile<ViewModelToDomainMappingProfile>();
             });
         }
     }

@@ -7,6 +7,8 @@ namespace GetEnderecos.Application.Interfaces.Enderecos
 {
     public interface IEnderecoService : IServiceBase<Endereco>
     {
+        Task<EnderecoViewModel> ObterEnderecoPorCep(string cep);
+
         Task<IEnumerable<EnderecoViewModel>> ObterTodos();
     }
 }

@@ -18,6 +18,13 @@ namespace GetEnderecos.Api.Controllers
 
 
         [HttpGet]
+        [Route("endereco/cep/{cep}")]
+        public async Task<EnderecoViewModel> ObterEnderecoPorCep(string cep)
+        {
+            return await _enderecoService.ObterEnderecoPorCep(cep);
+        }
+
+        [HttpGet]
         [Route("enderecos")]
         public async Task<IEnumerable<EnderecoViewModel>> ObterEnderecos()
         {
