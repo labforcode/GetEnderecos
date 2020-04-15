@@ -32,7 +32,7 @@ namespace GetEnderecos.Infra.Data.Repositories.Dapper.Enderecos
             {
                 using var connection = Connection;
 
-                _query += "WHERE e.cep = @cep";
+                _query += "WHERE e.cep = @cep;";
 
                 var endereco = await connection.QueryFirstOrDefaultAsync<Endereco>(_query, new { cep });
 
@@ -45,10 +45,37 @@ namespace GetEnderecos.Infra.Data.Repositories.Dapper.Enderecos
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logradouro"></param>
+        /// <param name="municipio"></param>
+        /// <param name="uf"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<Endereco>> ObterEnderecos(string logradouro, string municipio, string uf)
+        {
+            try
+            {
+                using var connection = Connection;
+
+                _query += "WHERE e.uf = @uf " +
+                          "AND e.municipio = @municipio " +
+                          "AND e.logradouro LIKE @logradouro;";
+
+                var enderecos = await connection.QueryAsync<Endereco>(_query, new { uf, municipio, logradouro = "%" + logradouro + "%" });
+
+                return enderecos;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Obtém todos os endereços
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Endereco>> ObterTodos()
+        public async Task<IEnumerable<Endereco>> ObterTodosEnderecos()
         {
             try
             {

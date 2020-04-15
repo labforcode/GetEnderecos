@@ -9,6 +9,8 @@ namespace GetEnderecos.Application.Interfaces.Enderecos
     {
         Task<EnderecoViewModel> ObterEnderecoPorCep(string cep);
 
-        Task<IEnumerable<EnderecoViewModel>> ObterTodos();
+        Task<IEnumerable<EnderecoViewModel>> ObterEnderecos(string logradouro, string municipio, string uf);
+
+        Task<IEnumerable<EnderecoViewModel>> ObterTodosEnderecos();
     }
 }

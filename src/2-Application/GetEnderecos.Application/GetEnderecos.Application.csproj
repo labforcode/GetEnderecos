@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\3-Domain\GetEnderecos.Domain\GetEnderecos.Domain.csproj" />
+    <ProjectReference Include="..\..\4-Common\GetEnderecos.Common\GetEnderecos.Common.csproj" />
   </ItemGroup>
 
 </Project>

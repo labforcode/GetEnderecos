@@ -9,6 +9,8 @@ namespace GetEnderecos.Domain.Interfaces.Dapper.Enderecos
     {
         Task<Endereco> ObterEnderecoPorCep(string cep);
 
-        Task<IEnumerable<Endereco>> ObterTodos();
+        Task<IEnumerable<Endereco>> ObterEnderecos(string logradouro, string municipio, string uf);
+
+        Task<IEnumerable<Endereco>> ObterTodosEnderecos();
     }
 }

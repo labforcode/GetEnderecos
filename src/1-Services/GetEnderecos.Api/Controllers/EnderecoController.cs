@@ -16,7 +16,6 @@ namespace GetEnderecos.Api.Controllers
             _enderecoService = enderecoService;
         }
 
-
         [HttpGet]
         [Route("endereco/cep/{cep}")]
         public async Task<EnderecoViewModel> ObterEnderecoPorCep(string cep)
@@ -25,10 +24,17 @@ namespace GetEnderecos.Api.Controllers
         }
 
         [HttpGet]
-        [Route("enderecos")]
-        public async Task<IEnumerable<EnderecoViewModel>> ObterEnderecos()
+        [Route("enderecos/logradouro/{logradouro}/municipio/{municipio}/uf/{uf}")]
+        public async Task<IEnumerable<EnderecoViewModel>> ObterEnderecos(string logradouro, string municipio, string uf)
         {
-            return await _enderecoService.ObterTodos();
+            return await _enderecoService.ObterEnderecos(logradouro, municipio, uf);
+        }
+
+        [HttpGet]
+        [Route("enderecos")]
+        public async Task<IEnumerable<EnderecoViewModel>> ObterTodosEnderecos()
+        {
+            return await _enderecoService.ObterTodosEnderecos();
         }
     }
 }
